@@ -85,22 +85,31 @@ const items = [{
 ];
 
 
-const shopCards = document.querySelrctor('#shop-items');
+const shopCards = document.querySelector('#shop-items');
 const cardTemplate = document.querySelector('#item-template');
 
 function createNewCard(cardItem) {
-    const { title, description, tags, price, img } = cardItem; // вот так могу засунуть объект в переменную??
-    const card = cardTemplate.textContent.cloneNode(true);
+    const { title, description, tags, price, img } = cardItem;
+    const card = cardTemplate.content.cloneNode(true);
 
     card.querySelector('h1').textContent = title;
     card.querySelector('p').textContent = description;
-    card.querySelector('.tags').textContent = tags;
     card.querySelector('span').textContent = price;
     card.querySelector('img').textContent = img;
 
+
+
+    const tagPlace = card.querySelector('.tags');
+
+    tags.forEach((tag) => {
+        const newTag = document.createElement('span');
+        newTag.textContent = tag;
+        newTag.classList.add('tag');
+        tagPlace.append(newTag);
+    });
+
     return card;
 }
-
 showCards();
 
 function showCards() {
