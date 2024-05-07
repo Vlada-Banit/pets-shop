@@ -95,7 +95,7 @@ function createNewCard(cardItem) {
     card.querySelector('h1').textContent = title;
     card.querySelector('p').textContent = description;
     card.querySelector('span').textContent = price;
-    card.querySelector('img').textContent = img;
+    card.querySelector('img').src = img;
 
 
 
